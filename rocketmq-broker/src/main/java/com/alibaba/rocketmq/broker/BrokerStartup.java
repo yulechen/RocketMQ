@@ -119,14 +119,7 @@ public class BrokerStartup {
                 messageStoreConfig.setAccessMessageInMemoryMaxRatio(ratio);
             }
 
-            // 打印默认配置
-            if (commandLine.hasOption('p')) {
-                MixAll.printObjectProperties(null, brokerConfig);
-                MixAll.printObjectProperties(null, nettyServerConfig);
-                MixAll.printObjectProperties(null, nettyClientConfig);
-                MixAll.printObjectProperties(null, messageStoreConfig);
-                System.exit(0);
-            }
+          
             else if (commandLine.hasOption('m')) {
                 MixAll.printObjectProperties(null, brokerConfig, true);
                 MixAll.printObjectProperties(null, nettyServerConfig, true);
@@ -155,6 +148,14 @@ public class BrokerStartup {
                 }
             }
 
+            // 打印默认配置
+            if (commandLine.hasOption('p')) {
+                MixAll.printObjectProperties(null, brokerConfig);
+                MixAll.printObjectProperties(null, nettyServerConfig);
+                MixAll.printObjectProperties(null, nettyClientConfig);
+                MixAll.printObjectProperties(null, messageStoreConfig);
+                System.exit(0);
+            }
             MixAll.properties2Object(ServerUtil.commandLine2Properties(commandLine), brokerConfig);
 
             if (null == brokerConfig.getRocketmqHome()) {
