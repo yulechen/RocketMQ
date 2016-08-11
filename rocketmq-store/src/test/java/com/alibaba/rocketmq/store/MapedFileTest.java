@@ -69,7 +69,7 @@ public class MapedFileTest {
     /**
      * 当前测试用例由于对mmap操作错误，会导致JVM CRASHED
      */
-    @Ignore
+    @Test
     public void test_jvm_crashed() {
         try {
             MapedFile mapedFile = new MapedFile("./unit_test_store/MapedFileTest/10086", 1024 * 64);
@@ -78,8 +78,8 @@ public class MapedFileTest {
             System.out.println("write OK");
 
             SelectMapedBufferResult selectMapedBufferResult = mapedFile.selectMapedBuffer(0);
-            selectMapedBufferResult.release();
-            mapedFile.shutdown(1000);
+           // selectMapedBufferResult.release();
+           // mapedFile.shutdown(1000);
 
             byte[] data = new byte[StoreMessage.length()];
             selectMapedBufferResult.getByteBuffer().get(data);

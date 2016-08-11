@@ -30,7 +30,7 @@ import com.alibaba.rocketmq.common.message.MessageExt;
 /**
  * Consumer，订阅消息
  */
-public class Consumer {
+public class Consumer1 {
 
     public static void main(String[] args) throws InterruptedException, MQClientException {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name_4");
@@ -52,7 +52,6 @@ public class Consumer {
                         System.out.println(new String(msg.getBody(),"utf-8"));
                     }
                     catch (UnsupportedEncodingException e) {
-                        // TODO Auto-generated catch block
 //                        e.printStackTrace();
                     }
                 }

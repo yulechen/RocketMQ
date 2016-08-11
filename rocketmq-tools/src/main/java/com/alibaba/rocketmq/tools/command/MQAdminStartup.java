@@ -15,8 +15,10 @@
  */
 package com.alibaba.rocketmq.tools.command;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
@@ -122,7 +124,18 @@ public class MQAdminStartup {
 
 
     public static void main(String[] args) {
-        main0(args, null);
+        Scanner scanner = new Scanner(System.in);
+        String next="";
+        while(!"qqq".equals(next)){
+            next= scanner.nextLine();
+            if("h".equals(next)){
+                next="";
+                main0(new String[0],null);
+            }else{
+                main0(next.split(" +"),null);
+            }
+        }
+      
     }
 
 
@@ -200,7 +213,9 @@ public class MQAdminStartup {
         JoranConfigurator configurator = new JoranConfigurator();
         configurator.setContext(lc);
         lc.reset();
-        configurator.doConfigure(rocketmqHome + "/conf/logback_tools.xml");
+
+        URL resource = MQAdminStartup.class.getResource("/logback_tools.xml");
+        configurator.doConfigure(resource.getFile());
     }
 
 

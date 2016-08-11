@@ -31,7 +31,6 @@ public class StartBrokerB {
         String[] options = new String[]{
             "-c" 
             ,"D:/GitReps/Github/RocketMQ/rocketmq-start/src/main/resources/conf/broker-b-config.properties"
-            ,"-p"
         }; 
         BrokerStartup.main(options);        
     }

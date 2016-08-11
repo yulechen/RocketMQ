@@ -1,0 +1,2 @@
+#按时间打印消息：
+printMsg -b 2016-08-11#15:00:00:000 -c UTF-8 -e 2016-08-11#15:12:00:000 -n 172.16.1.44:9876 -t topic_msgcenter_sendmessage
